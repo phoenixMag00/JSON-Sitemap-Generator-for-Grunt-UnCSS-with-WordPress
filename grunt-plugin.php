@@ -16,6 +16,10 @@ function show_sitemap() {
     //set up an array for all the URLs
     
     	$urls = array();
+    	
+	//Homepage
+	
+		$urls[] = get_site_url();	
 	
 	//get all the pages, posts (including CPTs)
 	
@@ -28,10 +32,6 @@ function show_sitemap() {
 		  	$urls[] = get_permalink();
 	  
 		}
-
-	//Homepage
-	
-		$urls[] = get_site_url();
 		
 	//Authors
 
