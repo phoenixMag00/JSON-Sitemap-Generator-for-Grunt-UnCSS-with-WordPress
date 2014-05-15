@@ -78,6 +78,10 @@ function show_sitemap() {
 		
 			$urls[] = $main_url . '/?s=.';
 			
+	//Force a search with no results
+	
+		$urls[] = $main_url . '/?s=asdfasdfasdfasdf';
+	
 	//Force a 404 page
 	
 		$urls[] = $main_url . '/asdfasdfasdfasdf';
