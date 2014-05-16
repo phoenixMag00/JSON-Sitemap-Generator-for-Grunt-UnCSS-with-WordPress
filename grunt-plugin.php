@@ -19,7 +19,7 @@ function show_sitemap() {
     	
 	//Homepage
 	
-		$urls[] = get_site_url();	
+		$urls[] = get_site_url();
 	
 	//get all the pages, posts (including CPTs)
 	
@@ -28,7 +28,7 @@ function show_sitemap() {
 		while ($the_query->have_posts()) {
 		 
 		  $the_query->the_post();
-		  
+
 		  	$urls[] = get_permalink();
 	  
 		}
@@ -44,17 +44,21 @@ function show_sitemap() {
 		 }
 		  
 	 //Every term imaginable, even the empty ones (categories, custom taxonomies, tags, etc.)
-	  
-		 $taxonomies=get_taxonomies('','names'); 
-		
-		 	$args = array( 'hide_empty=0' );
-		
-		 		$terms = get_terms($taxonomies, $args);
-		
-				    foreach ($terms as $term) {
-				     
-				    	$urls[] = get_term_link( $term );    	
-				    }
+	
+		$args = array(
+  			'public'   => true,
+  		);
+  			
+  			$taxonomies=get_taxonomies($args,'names'); 
+
+				$args = array( 'hide_empty=0' );
+
+					$terms = get_terms($taxonomies, $args);
+
+						foreach ($terms as $term) {
+			 
+							$urls[] = get_term_link( $term );    	
+						}
 				    
 	//Getting a list of Archive URLs seems like it should be easier...probably missing something on the Codex, but this works.			    	    
 				    
